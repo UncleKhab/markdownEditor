@@ -1,3 +1,4 @@
+import LinkModal from "./components/LinkModal";
 import Home from "./pages/Home";
 
 function App() {

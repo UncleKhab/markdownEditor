@@ -13,7 +13,7 @@ const MarkdownSanitized = () => {
   const uiCtx = useContext(UiContext);
   return (
     <div
-      className={`no-scrollbar px-5 py-3 overflow-scroll h-full bg-gray-200 prose flex-1 relative`}
+      className={`no-scrollbar px-5 py-3 overflow-scroll h-full bg-gray-200 prose flex-1 relative pb-96`}
     >
       <ReactMarkdown children={contentCtx.text} remarkPlugins={[remarkGfm]} />
       {!uiCtx.state.showEditor && (

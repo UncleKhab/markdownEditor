@@ -12,18 +12,10 @@ const RawInputArea = (props) => {
     <div className="flex-1 relative">
       <textarea
         ref={props.textAreaRef}
-        className="resize-none no-scrollbar outline-none px-5 py-3 h-full overflow-scroll w-full"
+        className="resize-none no-scrollbar outline-none px-5 py-3 h-full overflow-scroll w-full pb-96"
         value={contentCtx.text}
         onChange={handleTextChange}
       />
-      {!uiCtx.state.showOutput && (
-        <button
-          className="absolute top-3 right-3 hover:text-blue-500"
-          onClick={() => uiCtx.dispatch({ type: "resetUi" })}
-        >
-          <XCircleIcon width="30" fontSize="md" />
-        </button>
-      )}
     </div>
   );
 };

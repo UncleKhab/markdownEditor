@@ -1,6 +1,11 @@
 import { useContext } from "react";
 import UiContext from "../context/ui-context";
-import { EyeIcon, PencilAltIcon, MenuIcon } from "@heroicons/react/solid";
+import {
+  EyeIcon,
+  PencilAltIcon,
+  MenuIcon,
+  XCircleIcon,
+} from "@heroicons/react/solid";
 const UiControls = () => {
   const uiCtx = useContext(UiContext);
 
@@ -25,9 +30,20 @@ const UiControls = () => {
       >
         <EyeIcon fontSize="md" width="25" />
       </button>
-      <button className="hover:text-blue-500 hover:bg-gray-300 p-1">
-        <PencilAltIcon fontSize="md" width="25" onClick={toggleEditor} />
-      </button>
+      {!uiCtx.state.showOutput && (
+        <button
+          className="hover:text-blue-500 hover:bg-gray-300 p-1"
+          onClick={() => uiCtx.dispatch({ type: "resetUi" })}
+        >
+          <XCircleIcon width="25" fontSize="md" />
+        </button>
+      )}
+
+      {uiCtx.state.showOutput && (
+        <button className="hover:text-blue-500 hover:bg-gray-300 p-1">
+          <PencilAltIcon fontSize="md" width="25" onClick={toggleEditor} />
+        </button>
+      )}
     </div>
   );
 };
